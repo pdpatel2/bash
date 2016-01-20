@@ -83,13 +83,14 @@ module.exports = {
         return console.log(err);
       }
       var arr = data.split("\n").sort();
-
-      arr.forEach(function(elem) {
-        if (newArr.indexOf(elem) < 0) {
-          newArr.push(elem)
+      var newArr = [];
+      for (var i=0; i<arr.length; i++) {
+        if (arr[i] != arr[i+1]) {
+          newArr.push(arr[i])
         }
-      })
-      console.log(newArr)
+      }
+
+      console.log(newArr.join("\n"))
       process.stdout.write("prompt > ");
     });
   }
